@@ -80,7 +80,7 @@ def df_move1st_sg(df_t):
 
     #Moving Singapore to the first row in the datatable
     df_t["new"] = range(1,len(df_t)+1)
-    df_t.loc[df_t[df_t['Country/Region'] == 'Singapore'].index.values,'new'] = 0
+    df_t.loc[df_t[df_t['Country/Region'] == 'Malaysia'].index.values,'new'] = 0
     df_t = df_t.sort_values("new").drop('new', axis=1)
     return df_t
 
@@ -200,7 +200,7 @@ map_data['Confirmed_24hr']=df_confirmed.iloc[:,-1] - df_confirmed.iloc[:,-2]
 map_data.sort_values(by='Confirmed', ascending=False,inplace=True)
 #Moving Singapore to the first row in the datatable
 map_data["new"] = range(1,len(map_data)+1)
-map_data.loc[map_data[map_data['Country/Region'] == 'Singapore'].index.values,'new'] = 0
+map_data.loc[map_data[map_data['Country/Region'] == 'Malaysia'].index.values,'new'] = 0
 map_data = map_data.sort_values("new").drop('new', axis=1)
 
 
