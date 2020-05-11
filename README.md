@@ -1,3 +1,25 @@
+# Note on heroku, the web process will shutdown after idling, this cause the web and data source reload
+* so if running on local machine, the source will not reload, it will not fetch the newest data even though refresh broswer
+2020-05-10T10:31:10.177703+00:00 heroku[web.1]: Idling
+2020-05-10T10:31:10.179814+00:00 heroku[web.1]: State changed from up to down
+2020-05-10T10:31:11.048445+00:00 heroku[web.1]: Stopping all processes with SIGTERM
+2020-05-10T10:31:11.084271+00:00 app[web.1]: [2020-05-10 10:31:11 +0000] [18] [INFO] Worker exiting (pid: 18)
+2020-05-10T10:31:11.084322+00:00 app[web.1]: [2020-05-10 10:31:11 +0000] [10] [INFO] Worker exiting (pid: 10)
+2020-05-10T10:31:11.084888+00:00 app[web.1]: [2020-05-10 10:31:11 +0000] [4] [INFO] Handling signal: term
+2020-05-10T10:31:11.385620+00:00 app[web.1]: [2020-05-10 10:31:11 +0000] [4] [INFO] Shutting down: Master
+2020-05-10T10:31:11.454991+00:00 heroku[web.1]: Process exited with status 0
+* when open again in broswer
+2020-05-10T10:58:43.432525+00:00 heroku[web.1]: Unidling
+2020-05-10T10:58:43.456084+00:00 heroku[web.1]: State changed from down to starting
+2020-05-10T10:58:49.873353+00:00 heroku[web.1]: Starting process with command `gunicorn covid19:server`
+2020-05-10T10:58:52.076488+00:00 heroku[web.1]: State changed from starting to up
+2020-05-10T10:58:51.892412+00:00 app[web.1]: [2020-05-10 10:58:51 +0000] [4] [INFO] Starting gunicorn 20.0.4
+2020-05-10T10:58:51.892964+00:00 app[web.1]: [2020-05-10 10:58:51 +0000] [4] [INFO] Listening at: http://0.0.0.0:58560 (4)
+2020-05-10T10:58:51.893091+00:00 app[web.1]: [2020-05-10 10:58:51 +0000] [4] [INFO] Using worker: sync
+2020-05-10T10:58:51.897339+00:00 app[web.1]: [2020-05-10 10:58:51 +0000] [10] [INFO] Booting worker with pid: 10
+2020-05-10T10:58:51.976966+00:00 app[web.1]: [2020-05-10 10:58:51 +0000] [18] [INFO] Booting worker with pid: 18
+2020-05-10T10:58:56.678826+00:00 app[web.1]: /app/covid19.py:192: SettingWithCopyWarning:
+
 # Covid19 Dashboard Web App using Python (Plotly Dash)
 Create your own dashboard web app with free resources using python only
 All tools stated here are free.
